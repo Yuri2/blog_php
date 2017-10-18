@@ -2,7 +2,7 @@
 	function mConn(){
 		static $conn=null;
 		if($conn==null){
-			$cfg=require(ROOT.'lib/config.php');
+			$cfg=require(ROOT.'/lib/config.php');
 			$conn=mysqli_connect($cfg['host'],$cfg['user'],$cfg['pwd'],$cfg['db']);
 			mysqli_query($conn,'set names '.$cfg['charset']);
 		}
@@ -12,7 +12,18 @@
 		return $conn;
 	}
 	function mQuery($sql){
-		return mysqli_query(mConn(),$sql);
+		$rs=mysqli_query(mConn(),$sql);
+		if($rs){
+			mlog($sql);
+		}else{
+			mlog($sql."\n".mysqli_query_error());
+		}
+		return $rs;
+	}
+	function mlog($str){
+		$filename=ROOT.'/log/'.date('ymd').'.txt';
+		$log="-------------------------------- \r\n".date('Y/m/d H:i:s')."\r\n".$str."\r\n"."--------------------------------\r\n\r\n";
+		return file_put_contents($filename,$log,FILE_APPEND);
 	}
 	function mGtall($sql){
 		$rs=mQuery($sql);
