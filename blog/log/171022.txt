@@ -1,0 +1,30 @@
+-------------------------------- 
+2017/10/22 11:38:35
+select art_id,title,pubtime,comm,cat.catname from art left join cat on art.cat_id=cat.cat_id
+--------------------------------
+
+-------------------------------- 
+2017/10/22 11:39:37
+select art_id,title,pubtime,comm,cat.catname from art left join cat on art.cat_id=cat.cat_id
+--------------------------------
+
+-------------------------------- 
+2017/10/22 11:39:41
+select * from art where art_id=1
+--------------------------------
+
+-------------------------------- 
+2017/10/22 11:39:41
+delete from art where art_id=1
+--------------------------------
+
+-------------------------------- 
+2017/10/22 11:39:42
+select art_id,title,pubtime,comm,cat.catname from art left join cat on art.cat_id=cat.cat_id
+--------------------------------
+
+-------------------------------- 
+2017/10/22 11:39:49
+select art_id,title,pubtime,comm,cat.catname from art left join cat on art.cat_id=cat.cat_id
+--------------------------------
+
